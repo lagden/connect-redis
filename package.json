@@ -49,11 +49,14 @@
     }
   },
   "peerDependencies": {
-    "ioredis": ">=4.19.2"
+    "ioredis": ">=4.19.4"
   },
   "devDependencies": {
     "ava": "3.14.0",
     "nyc": "15.1.0",
     "xo": "0.36.1"
+  },
+  "dependencies": {
+    "ioredis": "4.19.4"
   }
 }
