@@ -1,0 +1,59 @@
+{
+  "name": "@tadashi/connect-redis",
+  "version": "1.0.0",
+  "description": "Simplifying Redis connection",
+  "main": "lib/connect.js",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib"
+  ],
+  "scripts": {
+    "precoverage": "xo",
+    "coverage": "nyc --reporter=text-summary --reporter=lcov ava",
+    "pretest": "xo",
+    "test": "ava -t"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lagden/connect-redis.git"
+  },
+  "keywords": [
+    "connect",
+    "redis",
+    "lib"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": "Thiago Lagden",
+  "license": "MIT",
+  "homepage": "https://github.com/lagden/connect-redis#readme",
+  "bugs": {
+    "url": "https://github.com/lagden/connect-redis/issues"
+  },
+  "xo": {
+    "envs": [
+      "node"
+    ],
+    "semicolon": false,
+    "rules": {
+      "camelcase": [
+        "error",
+        {
+          "properties": "never"
+        }
+      ],
+      "capitalized-comments": 0,
+      "unicorn/prevent-abbreviations": 0
+    }
+  },
+  "peerDependencies": {
+    "ioredis": ">=4.19.2"
+  },
+  "devDependencies": {
+    "ava": "3.14.0",
+    "nyc": "15.1.0",
+    "xo": "0.36.1"
+  }
+}
