@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "precoverage": "xo",
-    "coverage": "nyc --reporter=text-summary --reporter=lcov ava",
+    "coverage": "nyc --reporter=text --reporter=lcov ava",
     "pretest": "xo",
     "test": "ava -t"
   },
