@@ -2,10 +2,10 @@ name: Node.js CI
 
 on:
   push:
-    branches: [master, main]
+    branches: [main]
 
   pull_request:
-    branches: [master, main]
+    branches: [main]
 
 jobs:
   build:
@@ -37,7 +37,7 @@ jobs:
       - run: npm run coverage
         env:
           CI: true
-          REDIS: 127.0.0.1:${{ job.services.redis.ports[6379] }}
+          # REDIS: 127.0.0.1:${{ job.services.redis.ports[6379] }}
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
