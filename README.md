@@ -13,8 +13,8 @@
 [npm]:             https://www.npmjs.com/package/@tadashi/connect-redis
 [ci-img]:          https://github.com/lagden/connect-redis/workflows/Node.js%20CI/badge.svg
 [ci]:              https://github.com/lagden/connect-redis/actions?query=workflow%3A%22Node.js+CI%22
-[coveralls-img]:   https://coveralls.io/repos/github/lagden/connect-redis/badge.svg?branch=master
-[coveralls]:       https://coveralls.io/github/lagden/connect-redis?branch=master
+[coveralls-img]:   https://coveralls.io/repos/github/lagden/connect-redis/badge.svg?branch=main
+[coveralls]:       https://coveralls.io/github/lagden/connect-redis?branch=main
 [dep-img]:         https://david-dm.org/lagden/connect-redis.svg
 [dep]:             https://david-dm.org/lagden/connect-redis
 [devDep-img]:      https://david-dm.org/lagden/connect-redis/dev-status.svg
