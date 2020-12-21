@@ -44,8 +44,8 @@ There are two ways to connect:
 
 Name        | Type                 | Default           | Description
 ----------- | -------------------- | ----------------- | ------------
-opts        | object               | {}                | See configuration options - [ioredis](https://github.com/luin/ioredis/blob/master/API.md) 
 addresses   | string               | '127.0.0.1:6379'  | Addresses to connect (separated by commas)
+opts        | object               | {}                | See configuration options - [ioredis](https://github.com/luin/ioredis/blob/master/API.md) 
 
 
 ### Cluster
