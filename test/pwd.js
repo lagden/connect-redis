@@ -10,3 +10,8 @@ test('connect pwd', t => {
 	connect()
 	t.pass('ok')
 })
+
+test('connect pwd options', t => {
+	connect(undefined, {password: 'xxx'})
+	t.pass('ok')
+})
