@@ -1,17 +1,12 @@
-'use strict'
+import test from 'ava'
+import connect from '../lib/connect.js'
 
-process.env.REDIS = 'localhost:6379'
-process.env.REDIS_PWD = 'xxx'
-
-const test = require('ava')
-const connect = require('../lib/connect')
-
-test('connect pwd', t => {
-	connect()
+test('connect pwd options', t => {
+	connect({password: 'yyy'})
 	t.pass('ok')
 })
 
-test('connect pwd options', t => {
-	connect(undefined, {password: 'xxx'})
+test('connect pwd', t => {
+	connect()
 	t.pass('ok')
 })

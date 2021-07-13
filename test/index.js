@@ -1,11 +1,9 @@
-'use strict'
-
-const test = require('ava')
-const singleton = require('../lib/singleton')
-const connect = require('../lib/connect')
+import test from 'ava'
+import singleton from '../lib/singleton.js'
+import connect from '../lib/connect.js'
 
 test('singleton', async t => {
-	const redis = singleton.connect('127.0.0.1:6379')
+	const redis = singleton.connect({address: '127.0.0.1:6379'})
 	await redis.set('a', 'xxx')
 
 	const redis2 = singleton.connect()
@@ -22,7 +20,8 @@ test('connect', async t => {
 })
 
 test.cb('cluster', t => {
-	const redis = connect('127.0.0.1,127.0.0.1:6379', {
+	const redis = connect({
+		address: '127.0.0.1,127.0.0.1:6379',
 		clusterRetryStrategy: () => false
 	})
 	redis.on('error', error => {
