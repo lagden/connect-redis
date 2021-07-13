@@ -47,7 +47,9 @@ opts    | object   | {address: '127.0.0.1:6379'} | See configuration options - [
 To use `Redis.Cluster`, set addresses separated by commas:
 
 ```js
-const redis = connect('127.0.0.1:6379,127.0.0.1:6380,127.0.0.1:6381')
+const redis = connect({
+  address: '127.0.0.1:6379,127.0.0.1:6380,127.0.0.1:6381'
+})
 ```
 
 
