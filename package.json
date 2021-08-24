@@ -1,6 +1,6 @@
 {
   "name": "@tadashi/connect-redis",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Simplifying Redis connection",
   "type": "module",
   "main": "lib/connect.js",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "ava": "3.15.0",
-    "c8": "7.7.3",
-    "ioredis": "4.27.6"
+    "c8": "7.8.0",
+    "ioredis": "4.27.8"
   }
 }
