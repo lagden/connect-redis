@@ -29,3 +29,14 @@ test.cb('cluster', t => {
 		t.end()
 	})
 })
+
+// test.cb('error', t => {
+// 	const redis = connect({
+// 		addresses: 'xxx',
+// 		retryStrategy: () => false,
+// 	})
+// 	redis.on('error', error => {
+// 		t.regex(error.code, /EAI_AGAIN|ENOTFOUND/)
+// 		t.end()
+// 	})
+// })
