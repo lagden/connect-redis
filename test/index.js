@@ -22,7 +22,7 @@ test('connect', async t => {
 test.cb('cluster', t => {
 	const redis = connect({
 		address: '127.0.0.1,127.0.0.1:6379',
-		clusterRetryStrategy: () => false
+		clusterRetryStrategy: () => false,
 	})
 	redis.on('error', error => {
 		t.is(error.message, 'Failed to refresh slots cache.')
