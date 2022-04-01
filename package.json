@@ -1,6 +1,6 @@
 {
   "name": "@tadashi/connect-redis",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Simplifying Redis connection",
   "type": "module",
   "main": "lib/connect.js",
@@ -33,7 +33,7 @@
     "url": "https://github.com/lagden/connect-redis/issues"
   },
   "peerDependencies": {
-    "ioredis": ">= 4.19.4 < 5"
+    "ioredis": ">= 4.19.4 < 6"
   },
   "devDependencies": {
     "@babel/core": "7.17.8",
