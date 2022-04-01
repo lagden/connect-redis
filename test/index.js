@@ -1,4 +1,5 @@
 import test from 'ava'
+import {pEvent} from 'p-event'
 import singleton from '../lib/singleton.js'
 import connect from '../lib/connect.js'
 
@@ -19,24 +20,20 @@ test('connect', async t => {
 	t.is(result, 'yyy')
 })
 
-test.cb('cluster', t => {
+test('cluster', async t => {
 	const redis = connect({
 		address: '127.0.0.1,127.0.0.1:6379',
 		clusterRetryStrategy: () => false,
 	})
-	redis.on('error', error => {
-		t.is(error.message, 'Failed to refresh slots cache.')
-		t.end()
-	})
+	const error = await pEvent(redis, 'error')
+	t.is(error.message, 'Failed to refresh slots cache.')
 })
 
-// test.cb('error', t => {
+// test('error', async t => {
 // 	const redis = connect({
 // 		addresses: 'xxx',
 // 		retryStrategy: () => false,
 // 	})
-// 	redis.on('error', error => {
-// 		t.regex(error.code, /EAI_AGAIN|ENOTFOUND/)
-// 		t.end()
-// 	})
+// 	const error = await pEvent(redis, 'error')
+// 	t.regex(error.code, /EAI_AGAIN|ENOTFOUND/)
 // })
