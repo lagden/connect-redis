@@ -1,10 +1,10 @@
 root: true
 env:
-  es2021: true
+  es2022: true
   node: true
-parser: '@babel/eslint-parser'
+# parser: '@babel/eslint-parser'
 parserOptions:
-  ecmaVersion: 12
+  ecmaVersion: 13
   sourceType: module
 extends:
   - xo
@@ -32,7 +32,6 @@ rules:
   spaced-comment: off
   padding-line-between-statements: off
   no-undef-init: off
-  no-new-func: off
   unicorn/filename-case: off
   unicorn/prevent-abbreviations: off
   unicorn/no-reduce: off
