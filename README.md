@@ -34,7 +34,7 @@ There are two ways to connect:
 
 Name    | Type     | Default                     | Description
 ------- | -------- | --------------------------- | ------------
-opts    | object   | {address: '127.0.0.1:6379'} | See configuration options - [ioredis](https://github.com/luin/ioredis/blob/master/API.md)
+opts    | object   | {address: '127.0.0.1:6379'} | See configuration options - [ioredis](https://luin.github.io/ioredis/interfaces/CommonRedisOptions.html)
 
 
 **Obs.:**
