@@ -13,7 +13,6 @@
     "eslint": "eslint --config .eslintrc.yml --ext .js --ignore-path .gitignore .",
     "pretest": "npm run eslint",
     "docker:rm": "docker kill redis-test; docker rm redis-test",
-    "_predocker": "npm run docker:rm",
     "docker": "docker run -p 6379:6379 --name redis-test -d redis:latest",
     "test": "env REDIS_PWD=xxx c8 --reporter=text --reporter=text-summary --reporter=lcov ava --tap"
   },
