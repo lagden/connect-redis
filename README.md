@@ -39,16 +39,22 @@ opts    | object   | {address: '127.0.0.1:6379'} | See configuration options - [
 
 **Obs.:**
 
-`opts.address` Addresses to connect (separated by commas)
+`opts.address` Addresses to connect (separated by commas or array)
 
 
 ### Cluster
 
-To use `Redis.Cluster`, set addresses separated by commas:
+To use `Cluster`, set addresses separated by commas or array:
 
 ```js
 const redis = connect({
   address: '127.0.0.1:6379,127.0.0.1:6380,127.0.0.1:6381'
+})
+
+// or
+
+const redis = connect({
+  address: ['127.0.0.1:6379', '127.0.0.1:6380', '127.0.0.1:6381']
 })
 ```
 

@@ -29,6 +29,15 @@ test('cluster', async t => {
 	t.is(error.message, 'Failed to refresh slots cache.')
 })
 
+test('cluster array', async t => {
+	const redis = connect({
+		address: ['127.0.0.1', '127.0.0.1:6379'],
+		clusterRetryStrategy: () => false,
+	})
+	const error = await pEvent(redis, 'error')
+	t.is(error.message, 'Failed to refresh slots cache.')
+})
+
 // test('error', async t => {
 // 	const redis = connect({
 // 		addresses: 'xxx',
