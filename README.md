@@ -43,11 +43,11 @@ Connects to a Redis instance or cluster as a singleton.
 
 #### opts
 
-| parameter      | type            | required | default        | description                             |
-| -------------- | --------------- | -------- | -------------- | --------------------------------------- |
-| address        | String|String[] | no       | 127.0.0.1:6379 | The address or addresses of the Redis server(s). |
-| password       | String          | no       | -              | The password for authenticating with the Redis server, if required. |
-| clusterOptions | Object          | no       | -              | [See configuration options](https://redis.github.io/ioredis/interfaces/ClusterOptions.html) |
+| parameter      | type             | required | default        | description                             |
+| -------------- | ---------------- | -------- | -------------- | --------------------------------------- |
+| address        | String\|String[] | no       | 127.0.0.1:6379 | The address or addresses of the Redis server(s). |
+| password       | String           | no       | -              | The password for authenticating with the Redis server, if required. |
+| clusterOptions | Object           | no       | -              | [See configuration options](https://redis.github.io/ioredis/interfaces/ClusterOptions.html) |
 
 
 ### Cluster
