@@ -24,45 +24,55 @@ Simplifying Redis connection
 $ npm i -S @tadashi/connect-redis
 ```
 
-
 ## API
 
 There are two ways to connect:
 
-- `singleton.connect(\[opts\])`
-- `connect(\[opts\])`
+### connect(\[opts\])
 
-Name    | Type     | Default                     | Description
-------- | -------- | --------------------------- | ------------
-opts    | object   | {address: '127.0.0.1:6379'} | See configuration options - [ioredis](https://luin.github.io/ioredis/interfaces/CommonRedisOptions.html)
+Connects to a Redis server or cluster.
+
+### singleton(\[opts\])
+
+Connects to a Redis instance or cluster as a singleton.
+
+| parameter | type        | required | default            | description       |
+| --------- | ----------- | -------- | ------------------ | ----------------- |
+| opts      | Object      | no       | [see below](#opts) | [See configuration options](https://redis.github.io/ioredis/interfaces/CommonRedisOptions.html) |
 
 
-**Obs.:**
+#### opts
 
-`opts.address` Addresses to connect (separated by commas or array)
+| parameter      | type            | required | default        | description                             |
+| -------------- | --------------- | -------- | -------------- | --------------------------------------- |
+| address        | String|String[] | no       | 127.0.0.1:6379 | The address or addresses of the Redis server(s). |
+| password       | String          | no       | -              | The password for authenticating with the Redis server, if required. |
+| clusterOptions | Object          | no       | -              | [See configuration options](https://redis.github.io/ioredis/interfaces/ClusterOptions.html) |
 
 
 ### Cluster
 
-To use `Cluster`, set addresses separated by commas or array:
+To use `Cluster`, set addresses separated by commas or an array and set [clusterOptions](https://redis.github.io/ioredis/interfaces/ClusterOptions.html).
 
 ```js
-const redis = connect({
-  address: '127.0.0.1:6379,127.0.0.1:6380,127.0.0.1:6381'
-})
-
-// or
+import {connect} from '@tadashi/connect-redis'
 
 const redis = connect({
-  address: ['127.0.0.1:6379', '127.0.0.1:6380', '127.0.0.1:6381']
+  address: '127.0.0.1:6379, 127.0.0.1:6380, 127.0.0.1:6381',
+  // or
+  address: ['127.0.0.1:6379', '127.0.0.1:6380', '127.0.0.1:6381'],
+  // and
+  clusterOptions: {
+    retryDelayOnClusterDown: 500,
+    // ...
+  }
 })
 ```
-
 
 ## Usage
 
 ```js
-import connect from '@tadashi/connect-redis'
+import {connect} from '@tadashi/connect-redis'
 
 const redis = connect()
 
@@ -72,6 +82,9 @@ const result = await redis.get('a')
 console.log(result) // => xxx
 ```
 
+## Buy Me a Coffee
+
+BTC: bc1q7famhuj5f25n6qvlm3sssnymk2qpxrfwpyq7g4
 
 ## License
 

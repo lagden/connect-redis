@@ -1,41 +1,52 @@
-import test from 'ava'
-import {pEvent} from 'p-event'
-import singleton from '../lib/singleton.js'
-import connect from '../lib/connect.js'
+import { test } from 'node:test'
+import assert from 'node:assert/strict'
+import { pEvent } from 'p-event'
+import { connect, singleton } from '../src/index.js'
 
-test('singleton', async t => {
-	const redis = singleton.connect({address: '127.0.0.1:6379'})
+test('singleton', async () => {
+	const redis = singleton({ address: '127.0.0.1:6379' })
 	await redis.set('a', 'xxx')
 
-	const redis2 = singleton.connect()
+	const redis2 = singleton()
 	const result = await redis2.get('a')
-	t.is(result, 'xxx')
-	t.true(redis === redis2)
+
+	assert.equal(result, 'xxx')
+	assert.ok(redis === redis2)
+
+	redis.disconnect(false)
 })
 
-test('connect', async t => {
+test('connect', async () => {
 	const redis = connect()
+
 	await redis.set('b', 'yyy')
 	const result = await redis.get('b')
-	t.is(result, 'yyy')
+
+	assert.equal(result, 'yyy')
+
+	redis.disconnect(false)
 })
 
-test('cluster', async t => {
+test('cluster', async () => {
 	const redis = connect({
 		address: '127.0.0.1,127.0.0.1:6379',
 		clusterRetryStrategy: () => false,
 	})
 	const error = await pEvent(redis, 'error')
-	t.is(error.message, 'Failed to refresh slots cache.')
+	assert.equal(error.message, 'Failed to refresh slots cache.')
+
+	redis.disconnect(false)
 })
 
-test('cluster array', async t => {
+test('cluster array', async () => {
 	const redis = connect({
 		address: ['127.0.0.1', '127.0.0.1:6379'],
 		clusterRetryStrategy: () => false,
 	})
 	const error = await pEvent(redis, 'error')
-	t.is(error.message, 'Failed to refresh slots cache.')
+	assert.equal(error.message, 'Failed to refresh slots cache.')
+
+	redis.disconnect(false)
 })
 
 // test('error', async t => {

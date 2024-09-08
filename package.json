@@ -1,21 +1,29 @@
 {
   "name": "@tadashi/connect-redis",
-  "version": "2.4.0",
+  "version": "3.0.0",
   "description": "Simplifying Redis connection",
   "type": "module",
-  "main": "lib/connect.js",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "types": "./src/types/index.d.ts"
+    },
+    "./connect.js": {
+      "import": "./src/connect.js",
+      "types": "./src/types/connect.d.ts"
+    },
+    "./singleton.js": {
+      "import": "./src/singleton.js",
+      "types": "./src/types/singleton.d.ts"
+    }
+  },
   "files": [
     "LICENSE",
     "README.md",
-    "lib"
+    "src"
   ],
-  "scripts": {
-    "eslint": "eslint --config .eslintrc.yml --ext .js --ignore-path .gitignore .",
-    "pretest": "npm run eslint",
-    "docker:rm": "docker kill redis-test; docker rm redis-test",
-    "docker": "docker run -p 6379:6379 --name redis-test -d redis:latest",
-    "test": "env REDIS_PWD=xxx c8 --reporter=text --reporter=text-summary --reporter=lcov ava --tap"
-  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/lagden/connect-redis.git"
@@ -26,7 +34,7 @@
     "lib"
   ],
   "engines": {
-    "node": ">=16"
+    "node": ">=20"
   },
   "author": "Thiago Lagden",
   "license": "MIT",
@@ -34,16 +42,21 @@
   "bugs": {
     "url": "https://github.com/lagden/connect-redis/issues"
   },
+  "scripts": {
+    "tsc": "tsc",
+    "pretest": "npm run tsc",
+    "docker:rm": "docker kill connect-redis-test; docker rm connect-redis-test",
+    "docker": "docker run -p 6379:6379 --name connect-redis-test -d redis:latest",
+    "test": "env REDIS_PWD=xxxxxx c8 --reporter=text --reporter=text-summary --reporter=lcovonly node --test test/*.spec.js"
+  },
   "peerDependencies": {
     "ioredis": ">= 4.19.4 < 6"
   },
   "devDependencies": {
-    "ava": "5.3.0",
-    "c8": "7.14.0",
-    "eslint": "8.42.0",
-    "eslint-config-xo": "0.43.1",
-    "eslint-plugin-unicorn": "47.0.0",
-    "ioredis": "5.3.2",
-    "p-event": "5.0.1"
+    "@types/node": "22.5.4",
+    "c8": "10.1.2",
+    "ioredis": "5.4.1",
+    "p-event": "6.0.1",
+    "typescript": "5.5.4"
   }
 }
