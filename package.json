@@ -4,7 +4,7 @@
   "description": "Simplifying Redis connection",
   "type": "module",
   "main": "./src/index.js",
-  "types": "./src/index.d.ts",
+  "types": "./src/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./src/index.js",
