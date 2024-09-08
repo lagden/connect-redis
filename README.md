@@ -90,6 +90,8 @@ const result = await redis.get('a')
 console.log(result) // => xxx
 ```
 
+---
+
 > [!IMPORTANT]  
 > Buy me a coffee!  
 > BTC: bc1q7famhuj5f25n6qvlm3sssnymk2qpxrfwpyq7g4
