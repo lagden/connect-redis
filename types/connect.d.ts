@@ -8,9 +8,9 @@
  * @returns {Cluster|Redis} An instance of a Redis connection or a Redis Cluster.
  */
 export default function connect(props?: {
-	address?: string | string[]
-	password?: string
-	clusterOptions?: any
-}): Cluster | Redis
-import { Cluster } from 'ioredis'
-import { Redis } from 'ioredis'
+    address?: string | string[];
+    password?: string;
+    clusterOptions?: any;
+}): Cluster | Redis;
+import { Cluster } from 'ioredis';
+import { Redis } from 'ioredis';

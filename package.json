@@ -4,25 +4,26 @@
   "description": "Simplifying Redis connection",
   "type": "module",
   "main": "./src/index.js",
-  "types": "./src/types/index.d.ts",
+  "types": "./types/index.d.ts",
   "exports": {
     ".": {
       "import": "./src/index.js",
-      "types": "./src/types/index.d.ts"
+      "types": "./types/index.d.ts"
     },
     "./connect.js": {
       "import": "./src/connect.js",
-      "types": "./src/types/connect.d.ts"
+      "types": "./types/connect.d.ts"
     },
     "./singleton.js": {
       "import": "./src/singleton.js",
-      "types": "./src/types/singleton.d.ts"
+      "types": "./types/singleton.d.ts"
     }
   },
   "files": [
     "LICENSE",
     "README.md",
-    "src"
+    "src",
+    "types"
   ],
   "repository": {
     "type": "git",
@@ -31,7 +32,8 @@
   "keywords": [
     "connect",
     "redis",
-    "lib"
+    "lib",
+    "types"
   ],
   "engines": {
     "node": ">=20"

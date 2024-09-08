@@ -6,4 +6,4 @@
  * @returns {Proxy} A proxy that prevents modification of the original object.
  * @throws {Error} Throws an error if there is an attempt to change the object's properties.
  */
-export function immutable(object: any): ProxyConstructor
+export function immutable(object: any): ProxyConstructor;
