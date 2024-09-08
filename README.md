@@ -24,6 +24,14 @@ Simplifying Redis connection
 $ npm i -S @tadashi/connect-redis
 ```
 
+## Environment variable
+
+| variable   | type     | required | default | description          |
+| --------   | -------- | -------- | ------- | -------------------- |
+| REDIS      | string   | no       | -       | The address or addresses of the Redis server(s). |
+| REDIS_PWD  | string   | no       | -       | The password for authenticating with the Redis server, if required. |
+
+
 ## API
 
 There are two ways to connect:
@@ -82,9 +90,10 @@ const result = await redis.get('a')
 console.log(result) // => xxx
 ```
 
-## Buy Me a Coffee
+> [!IMPORTANT]  
+> Buy me a coffee!  
+> BTC: bc1q7famhuj5f25n6qvlm3sssnymk2qpxrfwpyq7g4
 
-BTC: bc1q7famhuj5f25n6qvlm3sssnymk2qpxrfwpyq7g4
 
 ## License
 
